@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+    environment {
+        PATH = "$PATH:C:/apache-maven-3.8.6"
+    }
+    
+    stages{
+	stage('GetCode'){
+            steps{
+		        git 'https://github.com/saurabhss56/My--project.git'
+            }
+         }        
+	stage('Build'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }       
+    }
+}
